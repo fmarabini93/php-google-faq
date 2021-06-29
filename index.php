@@ -24,8 +24,8 @@
             "answers" => [
                 "paragraph_1" => "Il tuo account è associato a un paese (o territorio) nei Termini di servizio per poter stabilire due cose:",
                 "list_1" => "La società consociata Google che offre i servizi, tratta le tue informazioni ed è responsabile del rispetto delle leggi sulla privacy vigenti. Generalmente Google offre i propri servizi per i consumatori tramite una delle due società seguenti:",
-                "list_2" => "Google Ireland Limited, se gli utenti sono residenti nello Spazio economico europeo (paesi dell'Unione europea, oltre a Islanda, Liechtenstein e Norvegia) o in Svizzera.",
-                "list_3" => "Google LLC, con sede negli Stati Uniti, per il resto del mondo.",
+                "nested_1" => "Google Ireland Limited, se gli utenti sono residenti nello Spazio economico europeo (paesi dell'Unione europea, oltre a Islanda, Liechtenstein e Norvegia) o in Svizzera.",
+                "nested_2" => "Google LLC, con sede negli Stati Uniti, per il resto del mondo.",
                 "list_4" => "La versione dei termini che regola il nostro rapporto, che può variare in base alle leggi locali.",
                 "paragraph_2" => "Tieni presente che i servizi Google sono fondamentalmente gli stessi a prescindere dalla società consociata che li offre o dal paese a cui è associato il tuo account.",
                 "subtitle" => "Stabilire il paese associato al tuo account",
@@ -67,9 +67,15 @@
                         <?php if(str_contains($type, "paragraph")) { ?>
                             <p><?= $text ?></p>
                         <?php } else if(str_contains($type, "list")) { ?>
-                            <ol><?= $text ?></ol>
+                            <?php echo "<ol>" ?>
+                                <li><?= $text ?></li>
+                            <?php echo "</ol>" ?>
                         <?php } else if(str_contains($type, "title")) { ?>
                             <h4><?= $text ?></h4>
+                        <?php } else if(str_contains($type, "nested")) { ?>
+                            <?php echo "<ul>" ?>
+                                <li><?= $text ?></li>
+                            <?php echo "</ul>" ?>
                         <?php } ?>
                     <?php } ?>
                 </section>
